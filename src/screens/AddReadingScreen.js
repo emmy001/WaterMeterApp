@@ -1,38 +1,29 @@
-import React, {useState} from 'react';
-import {View, Text, TextInput, Button, StyleSheet, Alert} from 'react-native';
-import {addReading} from '../database/Database';
+﻿import React, {useState} from 'react';
+import {View, Text, Button, StyleSheet, Alert} from 'react-native';
+import ReadingForm from '../components/ReadingForm';
 
 const AddReadingScreen = ({navigation}) => {
-  const [value, setValue] = useState('');
-  const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
+  const [saved, setSaved] = useState(false);
 
-  const handleAdd = async () => {
-    if (!value) {
-      Alert.alert('Error', 'Please enter a reading value');
-      return;
+  const handleSubmit = async (value, date) => {
+    try {
+      setSaved(true);
+      setTimeout(() => {
+        setSaved(false);
+      }, 2000);
+      setTimeout(() => navigation.goBack(), 2500);
+    } catch (e) {
+      Alert.alert('Error', 'Failed to add reading');
     }
-    await addReading(parseFloat(value), date);
-    Alert.alert('Success', 'Reading added');
-    navigation.goBack();
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Add Meter Reading</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Reading Value (m³)"
-        keyboardType="numeric"
-        value={value}
-        onChangeText={setValue}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Date (YYYY-MM-DD)"
-        value={date}
-        onChangeText={setDate}
-      />
-      <Button title="Add Reading" onPress={handleAdd} />
+      <Text style={styles.title}>Add New Reading</Text>
+      <View style={styles.card}>
+        <ReadingForm onSubmit={handleSubmit} submitLabel="Add Reading" />
+        {saved && <Text style={styles.successText}>Reading added!</Text>}
+      </View>
     </View>
   );
 };
@@ -40,20 +31,29 @@ const AddReadingScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    padding: 20,
+    backgroundColor: '#f5f5f5',
+    padding: 16,
   },
   title: {
-    fontSize: 24,
-    textAlign: 'center',
-    marginBottom: 20,
+    fontSize: 20,
+    fontWeight: '600',
+    marginBottom: 16,
+    color: '#333',
   },
-  input: {
-    borderWidth: 1,
-    borderColor: '#ccc',
-    padding: 10,
-    marginBottom: 10,
-    borderRadius: 5,
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    padding: 16,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOffset: {width: 0, height: 1},
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+  },
+  successText: {
+    marginTop: 12,
+    color: '#137333',
+    textAlign: 'center',
   },
 });
 

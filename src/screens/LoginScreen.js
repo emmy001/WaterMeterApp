@@ -1,16 +1,17 @@
-import React, {useState} from 'react';
+﻿import React, {useState} from 'react';
 import {View, Text, TextInput, Button, StyleSheet, Alert} from 'react-native';
+import {loginUser} from '../services/AuthService';
 
 const LoginScreen = ({navigation}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    // Simple mock login
-    if (username && password) {
+  const handleLogin = async () => {
+    try {
+      await loginUser({username, password});
       navigation.replace('Dashboard');
-    } else {
-      Alert.alert('Error', 'Please enter username and password');
+    } catch (err) {
+      Alert.alert('Error', 'Invalid credentials');
     }
   };
 
