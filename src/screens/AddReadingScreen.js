@@ -1,11 +1,12 @@
-﻿import React, {useState} from 'react';
-import {View, Text, Button, StyleSheet, Alert} from 'react-native';
+
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, Alert} from 'react-native';
 import ReadingForm from '../components/ReadingForm';
 
 const AddReadingScreen = ({navigation}) => {
   const [saved, setSaved] = useState(false);
 
-  const handleSubmit = async (value, date) => {
+  const handleSubmit = async (_value, _date) => {
     try {
       setSaved(true);
       setTimeout(() => {
@@ -58,3 +59,7 @@ const styles = StyleSheet.create({
 });
 
 export default AddReadingScreen;
+
+
+
+

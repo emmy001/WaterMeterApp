@@ -1,5 +1,4 @@
 ﻿import AsyncStorage from '@react-native-async-storage/async-storage';
-import {addReading, deleteReading, getReadings, updateReading} from '../database/Database';
 
 const STORAGE_KEY = 'waterMeterUser';
 

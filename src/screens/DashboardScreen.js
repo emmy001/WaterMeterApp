@@ -1,5 +1,5 @@
-﻿import React, {useState} from 'react';
-import {View, Text, TextInput, Button, StyleSheet, ScrollView} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, Button, StyleSheet, ScrollView, Alert} from 'react-native';
 import ReadingForm from '../components/ReadingForm';
 import {getReadings, addReading, updateReading, deleteReading} from '../database/Database';
 
@@ -64,7 +64,7 @@ const DashboardScreen = ({navigation}) => {
           <View key={item.id} style={styles.item}>
             <View>
               <Text style={styles.dateText}>{item.date}</Text>
-              <Text style={styles.valueText}>{item.value} m³</Text>
+              <Text style={styles.valueText}>{item.value} m�</Text>
             </View>
             <View style={styles.actionButtons}>
               <Button title="Edit" onPress={() => setEditingReading(item)} />
@@ -144,3 +144,5 @@ const styles = StyleSheet.create({
 });
 
 export default DashboardScreen;
+
+

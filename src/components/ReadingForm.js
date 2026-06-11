@@ -1,5 +1,5 @@
-﻿import React from 'react';
-import {View, Text, TextInput, Button, Alert, StyleSheet} from 'react-native';
+import React from 'react';
+import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 
 const ReadingForm = ({
   onSubmit,
@@ -33,7 +33,7 @@ const ReadingForm = ({
     <View>
       {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
-      <Text style={styles.label}>Reading Value (m³)</Text>
+      <Text style={styles.label}>Reading Value (m�)</Text>
       <TextInput
         style={styles.input}
         placeholder="0.00"
@@ -78,3 +78,4 @@ const styles = StyleSheet.create({
 });
 
 export default ReadingForm;
+

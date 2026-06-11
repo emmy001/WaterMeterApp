@@ -1,5 +1,5 @@
-ï»¿import React, {useState} from 'react';
-import {View, Text, Button} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, Button, Alert} from 'react-native';
 import {LineChart} from 'react-native-chart-kit';
 import {Dimensions} from 'react-native';
 import ReadingForm from '../components/ReadingForm';
@@ -84,15 +84,15 @@ const ReportsScreen = ({navigation}) => {
         <View style={styles.statRow}>
           <View style={styles.statItem}>
             <Text style={styles.statLabel}>Total</Text>
-            <Text style={styles.statValue}>{totalConsumption.toFixed(2)} mÂ³</Text>
+            <Text style={styles.statValue}>{totalConsumption.toFixed(2)} m³</Text>
           </View>
           <View style={styles.statItem}>
             <Text style={styles.statLabel}>Average</Text>
-            <Text style={styles.statValue}>{averageConsumption.toFixed(2)} mÂ³</Text>
+            <Text style={styles.statValue}>{averageConsumption.toFixed(2)} m³</Text>
           </View>
           <View style={styles.statItem}>
             <Text style={styles.statLabel}>Predicted</Text>
-            <Text style={styles.statValue}>{predictedNext.toFixed(2)} mÂ³</Text>
+            <Text style={styles.statValue}>{predictedNext.toFixed(2)} m³</Text>
           </View>
         </View>
       </View>
@@ -127,7 +127,7 @@ const ReportsScreen = ({navigation}) => {
           <View key={item.id} style={styles.item}>
             <View>
               <Text style={styles.dateText}>{item.date}</Text>
-              <Text style={styles.valueText}>{item.value} mÂ³</Text>
+              <Text style={styles.valueText}>{item.value} m³</Text>
             </View>
             <View style={styles.actionButtons}>
               <Button title="Edit" onPress={() => setEditingReading(item)} />
@@ -236,3 +236,4 @@ const styles = StyleSheet.create({
 });
 
 export default ReportsScreen;
+
