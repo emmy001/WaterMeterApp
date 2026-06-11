@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, FlatList, TouchableOpacity, ScrollView} from 'react-native';
-import {getNotifications, markNotificationRead} from '../database/Database';
+import {View, Text, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
 import {getCurrentUser} from '../services/AuthService';
 
 const ConsumerPortalScreen = ({navigation}) => {

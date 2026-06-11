@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
-import {initDB, getMeters, addMeter, getReadings, addReading, addAlert, addBill, getNotifications} from '../database/Database';
+import {initDB, getMeters, addMeter, addReading, addAlert, addBill, getBills, getNotifications, addNotification} from '../database/Database';
 import {monitorAllMeters} from '../services/MeterService';
 
 const SeedDataScreen = ({navigation}) => {

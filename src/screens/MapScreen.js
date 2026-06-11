@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, FlatList, TouchableOpacity, TextInput, Alert} from 'react-native';
+import {View, Text, StyleSheet, FlatList, TouchableOpacity, TextInput} from 'react-native';
 import {getMeters} from '../database/Database';
 
 const MapScreen = ({navigation}) => {

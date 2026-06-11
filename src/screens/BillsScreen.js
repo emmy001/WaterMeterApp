@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, StyleSheet, FlatList, TouchableOpacity, Alert} from 'react-native';
-import {getBills, getUnpaidBills, payBill} from '../database/Database';
-import {getReadingsByMeterId} from '../database/Database';
+import {getBills, payBill} from '../database/Database';
 
 const BillsScreen = ({navigation}) => {
   const [bills, setBills] = useState([]);

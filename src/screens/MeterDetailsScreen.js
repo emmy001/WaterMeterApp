@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, FlatList, TouchableOpacity, Alert, ScrollView} from 'react-native';
-import {getMeterById, getReadingsByMeterId, updateMeterStatus, addAlert} from '../database/Database';
+import {View, Text, StyleSheet, TouchableOpacity, Alert, ScrollView} from 'react-native';
+import {getMeterById, getReadingsByMeterId, updateMeterStatus} from '../database/Database';
 import {checkMeterHealth} from '../services/MeterService';
 
 const MeterDetailsScreen = ({navigation, route}) => {
